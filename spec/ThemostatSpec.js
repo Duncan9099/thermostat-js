@@ -13,6 +13,15 @@ describe("Thermostat", function() {
             thermostat.increaseTemperature() 
             expect(thermostat.temperature).toEqual(21)
         })
+
+        it("if power saving on max temp is 25", function() {
+            expect(thermostat.powerSavingMode).toEqual(true)
+            for (let i = 0; i < 5; i++) {
+                thermostat.increaseTemperature()
+            }
+            expect(thermostat.increaseTemperature()).toEqual("Error: Max temp reached")
+            expect(thermostat.temperature).toEqual(25)
+        })
     })
 
     describe("decreaseTemperature", function() {
