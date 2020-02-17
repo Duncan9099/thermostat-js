@@ -49,4 +49,24 @@ describe("Thermostat", function() {
             expect(thermostat.temperature).toEqual(20)
         })
     })
+
+    describe("check usage", function() {
+        it("is low usage", function() {
+            for (let i = 0; i < 4; i++) {
+                thermostat.decreaseTemperature()     
+            }
+            expect(thermostat.checkUsage()).toEqual("low-usage")
+        })
+
+        it("is medium usage", function() {
+            expect(thermostat.checkUsage()).toEqual("medium-usage")
+        })
+
+        it("is high usage", function() {
+            for (let i = 0; i < 10; i++) {
+                thermostat.increaseTemperature()     
+            }
+            expect(thermostat.checkUsage()).toEqual("high-usage")
+        })
+    })
 })
