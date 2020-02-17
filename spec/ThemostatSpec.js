@@ -40,6 +40,19 @@ describe("Thermostat", function() {
         })
     })
 
+    describe("set power saving mode", function() {
+        it("sets power saving to false", function() {
+            thermostat.switchPowerSavingMode() 
+            expect(thermostat.powerSavingMode).toEqual(false)
+        })
+
+        it("sets power saving to false then to true", function() {
+            thermostat.switchPowerSavingMode() 
+            thermostat.switchPowerSavingMode() 
+            expect(thermostat.powerSavingMode).toEqual(true)
+        })
+    })
+
     describe("reset", function() {
         it("resets temperature to 20", function() {
             expect(thermostat.temperature).toEqual(20)

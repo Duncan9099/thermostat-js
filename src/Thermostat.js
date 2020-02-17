@@ -23,6 +23,10 @@ class Thermostat {
         this.temperature = 20
     }
 
+    switchPowerSavingMode = () => {
+        this.powerSavingMode = !this.powerSavingMode
+    }
+
     checkUsage = () => {
         if (this.temperature < 18) {
             return "low-usage"
