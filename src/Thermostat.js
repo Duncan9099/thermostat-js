@@ -18,4 +18,8 @@ class Thermostat {
     checkMaximumTemperature = () => {
         return this.powerSavingMode ? 25 : 32
     }
+
+    reset = () => {
+        this.temperature = 20
+    }
 }
